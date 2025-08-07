@@ -1,0 +1,13 @@
+{
+  "name": "catering-management-api",
+  "version": "1.0.0",
+  "description": "Catering Management System REST API with Node.js backend and HTML+Vanilla JS+Tailwind CSS frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["catering", "restaurant", "menu", "rest-api", "nodejs", "html", "javascript", "tailwind"],
+  "author": "",
+  "license": "MIT"
+}
