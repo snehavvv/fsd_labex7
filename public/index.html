@@ -32,343 +32,187 @@
         }
     </script>
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes bounceGentle {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .bg-gradient-animated {
-            background: linear-gradient(-45deg, #6366f1, #8b5cf6, #a855f7, #c084fc);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
         .card-hover {
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        @keyframes sparkle {
-            0% {
-                opacity: 1;
-                transform: scale(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1) rotate(180deg);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0) rotate(360deg);
-            }
-        }
-        
-        /* Additional Professional Enhancements */
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
-        }
-        
-        .btn-shine:hover::before {
-            left: 100%;
-        }
-        
-        .glow-on-hover {
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .glow-on-hover:hover {
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(99, 102, 241, 0.3);
-            transform: scale(1.02);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .card-premium {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-        
-        .floating-animation {
-            animation: floating 4s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-4px); }
-        }
-        
-        .pulse-ring {
-            animation: pulse-ring 1.5s infinite;
-        }
-        
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0;
-                transform: scale(0) rotate(360deg);
-            }
-        }
-        
-        .animate-sparkle {
-            animation: sparkle 1s ease-out infinite;
-        }
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #6366f1, #8b5cf6);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8b5cf6, #a855f7);
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -inset-10 opacity-20">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
-        </div>
-    </div>
-
+<body class="bg-blue-50 min-h-screen">
     <!-- Header -->
-    <header class="relative z-10">
-        <div class="glass-effect">
-            <div class="container mx-auto px-6 py-8">
-                <div class="text-center animate-slide-up">
-                    <div class="flex justify-center items-center mb-6">
-                        <div class="relative">
-                            <div class="bg-gradient-to-r from-orange-400 to-red-400 p-4 rounded-full mr-4 floating-animation glow-on-hover">
-                                <i class="fas fa-utensils text-3xl text-white"></i>
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mr-4 pulse-ring opacity-75"></div>
-                        </div>
-                        <div>
-                            <h1 class="text-6xl font-bold bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent mb-2">
-                                Catering Management
-                            </h1>
-                            <div class="h-1 w-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mx-auto"></div>
-                        </div>
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6 py-6">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-3">
+                    <div class="bg-orange-500 p-2 rounded-lg mr-3">
+                        <i class="fas fa-utensils text-xl text-white"></i>
                     </div>
-                    <p class="text-gray-300 text-lg font-light">
-                        <i class="fas fa-code text-orange-400 mr-2"></i>
-                        REST API Demo with Node.js + Vanilla JS + Tailwind CSS
-                    </p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                            <i class="fas fa-server mr-1"></i> Pure Node.js
-                        </span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                            <i class="fab fa-js-square mr-1"></i> Vanilla JS
-                        </span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            <i class="fas fa-wind mr-1"></i> Tailwind CSS
-                        </span>
-                    </div>
+                    <h1 class="text-4xl font-bold text-gray-800">
+                        Catering Management System
+                    </h1>
+                </div>
+                <p class="text-gray-600 text-lg">
+                    REST API Demo with Node.js + Vanilla JS + Tailwind CSS
+                </p>
+                <div class="flex justify-center space-x-3 mt-3">
+                    <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-orange-100 text-orange-800">
+                        <i class="fas fa-server mr-1"></i> Node.js
+                    </span>
+                    <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800">
+                        <i class="fab fa-js-square mr-1"></i> Vanilla JS
+                    </span>
+                    <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 text-green-800">
+                        <i class="fas fa-paint-brush mr-1"></i> Tailwind CSS
+                    </span>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="relative z-10 container mx-auto px-6 py-8">
+    <main class="container mx-auto px-6 py-8">
         <!-- Filters Section -->
-        <div class="glass-effect rounded-2xl p-8 mb-8 animate-fade-in">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <div class="flex items-center mb-6">
-                <div class="bg-gradient-to-r from-orange-500 to-red-500 p-2 rounded-lg mr-3">
+                <div class="bg-orange-500 p-2 rounded-lg mr-3">
                     <i class="fas fa-filter text-white"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white">Menu Filters</h2>
+                <h2 class="text-xl font-semibold text-gray-800">Menu Filters</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Search by Name -->
-                <div class="space-y-2">
-                    <label for="searchName" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-search mr-2 text-orange-400"></i>Search Dish
+                <div>
+                    <label for="searchName" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-search mr-2 text-orange-500"></i>Search Dish
                     </label>
-                    <div class="relative">
-                        <input 
-                            type="text" 
-                            id="searchName" 
-                            placeholder="Enter dish name..."
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
-                        >
-                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    </div>
+                    <input 
+                        type="text" 
+                        id="searchName" 
+                        placeholder="Enter dish name..."
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    >
                 </div>
 
                 <!-- Category Filter -->
-                <div class="space-y-2">
-                    <label for="categoryFilter" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-list mr-2 text-blue-400"></i>Category
+                <div>
+                    <label for="categoryFilter" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-list mr-2 text-blue-500"></i>Category
                     </label>
-                    <div class="relative">
-                        <select 
-                            id="categoryFilter"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 appearance-none"
-                        >
-                            <option value="" class="bg-gray-800">All Categories</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                    </div>
+                    <select 
+                        id="categoryFilter"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                        <option value="">All Categories</option>
+                    </select>
                 </div>
 
                 <!-- Cuisine Filter -->
-                <div class="space-y-2">
-                    <label for="cuisineFilter" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-globe mr-2 text-green-400"></i>Cuisine
+                <div>
+                    <label for="cuisineFilter" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-globe mr-2 text-green-500"></i>Cuisine
                     </label>
-                    <div class="relative">
-                        <select 
-                            id="cuisineFilter"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 appearance-none"
-                        >
-                            <option value="" class="bg-gray-800">All Cuisines</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                    </div>
+                    <select 
+                        id="cuisineFilter"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    >
+                        <option value="">All Cuisines</option>
+                    </select>
                 </div>
 
                 <!-- Availability Filter -->
-                <div class="space-y-2">
-                    <label for="availabilityFilter" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-check-circle mr-2 text-yellow-400"></i>Availability
+                <div>
+                    <label for="availabilityFilter" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-check-circle mr-2 text-yellow-500"></i>Availability
                     </label>
-                    <div class="relative">
-                        <select 
-                            id="availabilityFilter"
-                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300 appearance-none"
-                        >
-                            <option value="" class="bg-gray-800">All Items</option>
-                            <option value="true" class="bg-gray-800">Available</option>
-                            <option value="false" class="bg-gray-800">Unavailable</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                    </div>
+                    <select 
+                        id="availabilityFilter"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    >
+                        <option value="">All Items</option>
+                        <option value="true">Available</option>
+                        <option value="false">Unavailable</option>
+                    </select>
                 </div>
             </div>
 
             <!-- Price Range and Servings -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
-                <div class="space-y-2">
-                    <label for="minPrice" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-dollar-sign mr-2 text-green-400"></i>Min Price ($)
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                <div>
+                    <label for="minPrice" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-dollar-sign mr-2 text-green-500"></i>Min Price ($)
                     </label>
                     <input 
                         type="number" 
                         id="minPrice" 
                         placeholder="0"
                         min="0"
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     >
                 </div>
-                <div class="space-y-2">
-                    <label for="maxPrice" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-dollar-sign mr-2 text-red-400"></i>Max Price ($)
+                <div>
+                    <label for="maxPrice" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-dollar-sign mr-2 text-red-500"></i>Max Price ($)
                     </label>
                     <input 
                         type="number" 
                         id="maxPrice" 
                         placeholder="100"
                         min="0"
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     >
                 </div>
-                <div class="space-y-2">
-                    <label for="minServings" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-users mr-2 text-purple-400"></i>Min Servings
+                <div>
+                    <label for="minServings" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-users mr-2 text-purple-500"></i>Min Servings
                     </label>
                     <input 
                         type="number" 
                         id="minServings" 
                         placeholder="1"
                         min="1"
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     >
                 </div>
-                <div class="space-y-2">
-                    <label for="maxServings" class="block text-sm font-semibold text-gray-200">
-                        <i class="fas fa-users mr-2 text-pink-400"></i>Max Servings
+                <div>
+                    <label for="maxServings" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-users mr-2 text-pink-500"></i>Max Servings
                     </label>
                     <input 
                         type="number" 
                         id="maxServings" 
                         placeholder="10"
                         min="1"
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     >
                 </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-wrap gap-4 mt-8">
+            <div class="flex flex-wrap gap-3 mt-6">
                 <button 
                     id="searchBtn"
-                    class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-transparent transform hover:scale-105 shadow-lg"
+                    class="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
                     <i class="fas fa-search mr-2"></i>Search Menu
                 </button>
                 <button 
                     id="clearBtn"
-                    class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-8 py-3 rounded-xl hover:from-gray-600 hover:to-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-transparent transform hover:scale-105 shadow-lg"
+                    class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
                     <i class="fas fa-eraser mr-2"></i>Clear Filters
                 </button>
                 <button 
                     id="loadAllBtn"
-                    class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-transparent transform hover:scale-105 shadow-lg"
+                    class="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                 >
                     <i class="fas fa-list mr-2"></i>Load Full Menu
                 </button>
@@ -377,32 +221,25 @@
 
         <!-- API Status -->
         <div class="mb-6">
-            <div id="apiStatus" class="hidden p-4 rounded-xl glass-effect border-l-4"></div>
+            <div id="apiStatus" class="hidden p-4 rounded-md"></div>
         </div>
 
         <!-- Loading Spinner -->
-        <div id="loadingSpinner" class="hidden flex justify-center items-center py-12">
-            <div class="relative">
-                <div class="animate-spin rounded-full h-16 w-16 border-4 border-orange-200 border-t-orange-500"></div>
-                <div class="absolute inset-0 animate-ping rounded-full h-16 w-16 border-4 border-orange-300 opacity-30"></div>
-            </div>
-            <span class="ml-4 text-gray-200 text-lg font-medium">Loading menu items...</span>
+        <div id="loadingSpinner" class="hidden flex justify-center items-center py-8">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            <span class="ml-3 text-gray-600">Loading menu items...</span>
         </div>
 
         <!-- Results Section -->
-        <div class="glass-effect rounded-2xl p-8 animate-fade-in">
-            <div class="flex justify-between items-center mb-6">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex justify-between items-center mb-4">
                 <div class="flex items-center">
-                    <div class="bg-gradient-to-r from-orange-500 to-red-500 p-2 rounded-lg mr-3">
+                    <div class="bg-blue-500 p-2 rounded-lg mr-3">
                         <i class="fas fa-utensils text-white"></i>
                     </div>
-                    <h2 class="text-2xl font-bold text-white">Menu Items</h2>
+                    <h3 class="text-xl font-semibold text-gray-800">Menu Items</h3>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <span id="resultCount" class="text-sm text-gray-300 bg-white/10 px-4 py-2 rounded-full">
-                        <i class="fas fa-chart-bar mr-2"></i>0 items found
-                    </span>
-                </div>
+                <span id="resultCount" class="text-gray-600">0 items found</span>
             </div>
             
             <!-- Menu Items Grid -->
@@ -411,14 +248,14 @@
             </div>
 
             <!-- No Results Message -->
-            <div id="noResults" class="hidden text-center py-16">
-                <div class="text-gray-400">
-                    <div class="mx-auto h-24 w-24 mb-6 bg-gradient-to-br from-orange-400 to-red-400 rounded-full flex items-center justify-center animate-bounce-gentle">
-                        <i class="fas fa-search text-3xl text-white"></i>
+            <div id="noResults" class="hidden text-center py-12">
+                <div class="text-gray-500">
+                    <div class="mx-auto h-16 w-16 mb-4 bg-orange-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-search text-xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-300 mb-2">No menu items found</h3>
-                    <p class="text-gray-500 text-lg">Try adjusting your search criteria or clear the filters to see all menu items.</p>
-                    <button onclick="document.getElementById('clearBtn').click()" class="mt-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">No menu items found</h3>
+                    <p class="text-gray-500">Try adjusting your search criteria or clear the filters to see all menu items.</p>
+                    <button onclick="document.getElementById('clearBtn').click()" class="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-200">
                         <i class="fas fa-refresh mr-2"></i>Clear Filters
                     </button>
                 </div>
@@ -426,123 +263,115 @@
         </div>
 
         <!-- API Documentation -->
-        <div class="glass-effect rounded-2xl p-8 mt-8 animate-fade-in">
-            <div class="flex items-center mb-6">
-                <div class="bg-gradient-to-r from-green-500 to-blue-500 p-2 rounded-lg mr-3">
+        <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+            <div class="flex items-center mb-4">
+                <div class="bg-green-500 p-2 rounded-lg mr-3">
                     <i class="fas fa-code text-white"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white">API Documentation</h2>
+                <h3 class="text-xl font-semibold text-gray-800">API Documentation</h3>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-200 mb-4">
-                        <i class="fas fa-link mr-2 text-blue-400"></i>Available Endpoints
-                    </h3>
+                    <h4 class="text-lg font-medium text-gray-700 mb-3">
+                        <i class="fas fa-link mr-2 text-blue-500"></i>Available Endpoints
+                    </h4>
                     <div class="space-y-3">
-                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                            <code class="text-green-400 font-mono text-sm">GET /api</code>
-                            <p class="text-gray-300 text-sm mt-1">Get all products (supports query parameters)</p>
+                        <div class="bg-gray-50 p-3 rounded-md border">
+                            <code class="text-green-600 font-mono text-sm">GET /api/menu</code>
+                            <p class="text-gray-600 text-sm mt-1">Get all menu items (supports query parameters)</p>
                         </div>
-                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                            <code class="text-green-400 font-mono text-sm">GET /api/products</code>
-                            <p class="text-gray-300 text-sm mt-1">Get all products</p>
+                        <div class="bg-gray-50 p-3 rounded-md border">
+                            <code class="text-green-600 font-mono text-sm">GET /api/categories</code>
+                            <p class="text-gray-600 text-sm mt-1">Get all menu categories</p>
                         </div>
-                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                            <code class="text-green-400 font-mono text-sm">GET /api/categories</code>
-                            <p class="text-gray-300 text-sm mt-1">Get all categories</p>
-                        </div>
-                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                            <code class="text-green-400 font-mono text-sm">GET /api/brands</code>
-                            <p class="text-gray-300 text-sm mt-1">Get all brands</p>
-                        </div>
-                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                            <code class="text-green-400 font-mono text-sm">GET /api/products/:id</code>
-                            <p class="text-gray-300 text-sm mt-1">Get product by ID</p>
+                        <div class="bg-gray-50 p-3 rounded-md border">
+                            <code class="text-green-600 font-mono text-sm">GET /api/cuisines</code>
+                            <p class="text-gray-600 text-sm mt-1">Get all cuisine types</p>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-200 mb-4">
-                        <i class="fas fa-filter mr-2 text-purple-400"></i>Query Parameters
-                    </h3>
-                    <div class="space-y-3">
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs mr-3">name</code>
-                            <span class="text-gray-300 text-sm">Filter by product name</span>
+                    <h4 class="text-lg font-medium text-gray-700 mb-3">
+                        <i class="fas fa-filter mr-2 text-purple-500"></i>Query Parameters
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs mr-3">name</code>
+                            <span class="text-gray-600 text-sm">Filter by menu item name</span>
                         </div>
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-xs mr-3">category</code>
-                            <span class="text-gray-300 text-sm">Filter by category</span>
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mr-3">category</code>
+                            <span class="text-gray-600 text-sm">Filter by category</span>
                         </div>
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-green-500/20 text-green-300 px-2 py-1 rounded text-xs mr-3">brand</code>
-                            <span class="text-gray-300 text-sm">Filter by brand</span>
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs mr-3">cuisine</code>
+                            <span class="text-gray-600 text-sm">Filter by cuisine type</span>
                         </div>
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-xs mr-3">minPrice</code>
-                            <span class="text-gray-300 text-sm">Minimum price filter</span>
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs mr-3">minPrice</code>
+                            <span class="text-gray-600 text-sm">Minimum price filter</span>
                         </div>
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-red-500/20 text-red-300 px-2 py-1 rounded text-xs mr-3">maxPrice</code>
-                            <span class="text-gray-300 text-sm">Maximum price filter</span>
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs mr-3">maxPrice</code>
+                            <span class="text-gray-600 text-sm">Maximum price filter</span>
                         </div>
-                        <div class="flex items-center p-3 bg-white/5 rounded-xl border border-white/10">
-                            <code class="bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded text-xs mr-3">inStock</code>
-                            <span class="text-gray-300 text-sm">Filter by stock status (true/false)</span>
+                        <div class="flex items-center p-2 bg-gray-50 rounded border">
+                            <code class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs mr-3">available</code>
+                            <span class="text-gray-600 text-sm">Filter by availability (true/false)</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="mt-6 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-blue-500/20">
-                <h4 class="text-white font-semibold mb-2">
-                    <i class="fas fa-lightbulb mr-2 text-yellow-400"></i>Example Usage
+            <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <h4 class="text-gray-800 font-medium mb-2">
+                    <i class="fas fa-lightbulb mr-2 text-blue-500"></i>Example Usage
                 </h4>
-                <code class="text-green-400 text-sm font-mono block bg-black/20 p-3 rounded-lg">
-                    /api?category=Electronics&minPrice=100&maxPrice=500&inStock=true
+                <code class="text-green-700 text-sm font-mono block bg-white p-3 rounded border">
+                    /api/menu?category=Main Course&cuisine=Indian&minPrice=10&maxPrice=25&available=true
                 </code>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="relative z-10 glass-effect border-t border-white/10 mt-16">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+    <footer class="bg-white border-t border-gray-200 mt-8">
+        <div class="container mx-auto px-6 py-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-3">
-                        <i class="fas fa-code mr-2 text-purple-400"></i>Product Catalog API
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        <i class="fas fa-utensils mr-2 text-orange-500"></i>Catering Management API
                     </h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        A modern REST API demo built with pure Node.js, showcasing clean architecture and responsive design.
+                    <p class="text-gray-600 text-sm">
+                        A modern REST API demo built with pure Node.js for catering services.
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-3">
-                        <i class="fas fa-tools mr-2 text-blue-400"></i>Technologies
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        <i class="fas fa-tools mr-2 text-blue-500"></i>Technologies
                     </h3>
                     <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                        <span class="bg-green-500/20 text-green-300 px-2 py-1 rounded-full text-xs">Node.js</span>
-                        <span class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full text-xs">JavaScript</span>
-                        <span class="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs">Tailwind CSS</span>
-                        <span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs">REST API</span>
+                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Node.js</span>
+                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">JavaScript</span>
+                        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Tailwind CSS</span>
+                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">REST API</span>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-3">
-                        <i class="fas fa-heart mr-2 text-red-400"></i>Built with ❤️
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                        <i class="fas fa-graduation-cap mr-2 text-green-500"></i>Academic Project
                     </h3>
-                    <p class="text-gray-300 text-sm">
+                    <p class="text-gray-600 text-sm">
                         Created for educational purposes<br>
-                        <span class="text-purple-400">FSD Lab Exercise 7</span>
+                        <span class="text-orange-600 font-medium">FSD Lab Exercise 7</span>
                     </p>
                 </div>
             </div>
-            <div class="border-t border-white/10 mt-8 pt-6 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 Product Catalog - REST API Demo Project
+            <div class="border-t border-gray-200 mt-6 pt-4 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Catering Management API - REST API Demo Project
                     <span class="mx-2">|</span>
                     <i class="fas fa-server mr-1"></i>Server: localhost:3000
                 </p>

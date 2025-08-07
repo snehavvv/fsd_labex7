@@ -191,11 +191,11 @@ function displayMenuItems(menuItems) {
 // Create a menu card element
 function createMenuCard(item) {
     const card = document.createElement('div');
-    card.className = 'bg-white/15 backdrop-blur-md border border-white/25 rounded-xl p-5 card-hover transition-all duration-200 animate-fade-in';
+    card.className = 'bg-white rounded-lg shadow-md border p-4 hover:shadow-lg transition duration-200';
     
     const availabilityBadgeClass = item.availability 
-        ? 'bg-gradient-to-r from-green-400 to-green-500 text-white' 
-        : 'bg-gradient-to-r from-red-400 to-red-500 text-white';
+        ? 'bg-green-500 text-white' 
+        : 'bg-red-500 text-white';
     const availabilityText = item.availability ? 'Available' : 'Unavailable';
     const availabilityIcon = item.availability ? 'fas fa-check-circle' : 'fas fa-times-circle';
     
@@ -219,52 +219,49 @@ function createMenuCard(item) {
     const cuisineFlag = cuisineFlags[item.cuisine] || '🍽️';
     
     card.innerHTML = `
-        <div class="flex justify-between items-start mb-4">
+        <div class="flex justify-between items-start mb-3">
             <div class="flex-1">
                 <div class="flex items-center mb-2">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-2 rounded-lg mr-3 shadow-sm">
+                    <div class="bg-orange-500 p-2 rounded-lg mr-3">
                         <i class="${categoryIcon} text-white text-sm"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white mb-1">${escapeHtml(item.name)}</h3>
-                        <p class="text-gray-300 text-sm flex items-center">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">${escapeHtml(item.name)}</h3>
+                        <p class="text-gray-600 text-sm flex items-center">
                             <span class="mr-2">${cuisineFlag}</span>${escapeHtml(item.cuisine)} Cuisine
                         </p>
                     </div>
                 </div>
             </div>
-            <span class="px-3 py-1 text-xs font-medium rounded-full ${availabilityBadgeClass} shadow-sm">
+            <span class="px-3 py-1 text-xs font-medium rounded-full ${availabilityBadgeClass}">
                 <i class="${availabilityIcon} mr-1"></i>${availabilityText}
             </span>
         </div>
         
-        <div class="flex justify-between items-center mb-4">
-            <span class="inline-flex items-center bg-blue-500/25 text-blue-200 text-sm px-3 py-1 rounded-full border border-blue-500/40">
+        <div class="flex justify-between items-center mb-3">
+            <span class="inline-flex items-center bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full border">
                 <i class="fas fa-list mr-2"></i>${escapeHtml(item.category)}
             </span>
-            <span class="inline-flex items-center bg-purple-500/25 text-purple-200 text-sm px-3 py-1 rounded-full border border-purple-500/40">
+            <span class="inline-flex items-center bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full border">
                 <i class="fas fa-users mr-2"></i>${item.servings} serving${item.servings !== 1 ? 's' : ''}
             </span>
         </div>
         
         <div class="flex justify-between items-center">
             <div class="text-left">
-                <span class="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                <span class="text-2xl font-bold text-green-600">
                     $${item.price}
                 </span>
-                <p class="text-gray-400 text-xs">Item ID: ${item.id}</p>
+                <p class="text-gray-500 text-xs">Item ID: ${item.id}</p>
             </div>
             <button 
                 onclick="viewMenuItemDetails(${item.id})"
-                class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 text-sm rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 transform hover:scale-102 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+                class="bg-orange-500 text-white px-4 py-2 text-sm rounded-md hover:bg-orange-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
             >
                 <i class="fas fa-eye mr-2"></i>View Details
             </button>
         </div>
     `;
-    
-    // Add relative positioning for subtle hover effect
-    card.style.position = 'relative';
     
     return card;
 }
@@ -322,56 +319,56 @@ function showMenuItemModal(item) {
     const cuisineFlag = cuisineFlags[item.cuisine] || '🍽️';
     
     modalBackdrop.innerHTML = `
-        <div class="glass-effect rounded-2xl p-6 max-w-md w-full mx-4 transform transition-all duration-200" style="animation: slideUp 0.3s ease-out;">
-            <div class="text-center mb-5">
-                <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-3 rounded-full inline-block mb-3">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-lg">
+            <div class="text-center mb-4">
+                <div class="bg-orange-500 p-3 rounded-full inline-block mb-3">
                     <i class="${categoryIcon} text-xl text-white"></i>
                 </div>
-                <h2 class="text-xl font-semibold text-white mb-2">${escapeHtml(item.name)}</h2>
-                <p class="text-gray-300 flex items-center justify-center">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">${escapeHtml(item.name)}</h2>
+                <p class="text-gray-600 flex items-center justify-center">
                     <span class="mr-2">${cuisineFlag}</span>${escapeHtml(item.cuisine)} Cuisine
                 </p>
             </div>
             
-            <div class="space-y-3 mb-5">
-                <div class="flex justify-between items-center p-3 bg-white/8 rounded-lg">
-                    <span class="text-gray-300"><i class="fas fa-list mr-2 text-blue-400"></i>Category</span>
-                    <span class="text-white font-medium">${escapeHtml(item.category)}</span>
+            <div class="space-y-3 mb-4">
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-gray-600"><i class="fas fa-list mr-2 text-blue-500"></i>Category</span>
+                    <span class="text-gray-800 font-medium">${escapeHtml(item.category)}</span>
                 </div>
                 
-                <div class="flex justify-between items-center p-3 bg-white/8 rounded-lg">
-                    <span class="text-gray-300"><i class="fas fa-dollar-sign mr-2 text-green-400"></i>Price</span>
-                    <span class="text-xl font-semibold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">$${item.price}</span>
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-gray-600"><i class="fas fa-dollar-sign mr-2 text-green-500"></i>Price</span>
+                    <span class="text-xl font-semibold text-green-600">$${item.price}</span>
                 </div>
                 
-                <div class="flex justify-between items-center p-3 bg-white/8 rounded-lg">
-                    <span class="text-gray-300"><i class="fas fa-users mr-2 text-purple-400"></i>Servings</span>
-                    <span class="text-white font-medium">${item.servings} serving${item.servings !== 1 ? 's' : ''}</span>
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-gray-600"><i class="fas fa-users mr-2 text-purple-500"></i>Servings</span>
+                    <span class="text-gray-800 font-medium">${item.servings} serving${item.servings !== 1 ? 's' : ''}</span>
                 </div>
                 
-                <div class="flex justify-between items-center p-3 bg-white/8 rounded-lg">
-                    <span class="text-gray-300"><i class="fas fa-check-circle mr-2 text-yellow-400"></i>Availability</span>
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-gray-600"><i class="fas fa-check-circle mr-2 text-yellow-500"></i>Availability</span>
                     <span class="inline-flex items-center px-2 py-1 rounded-full ${availabilityBg} ${availabilityColor} font-medium">
                         <i class="${availabilityIcon} mr-1"></i>${item.availability ? 'Available' : 'Unavailable'}
                     </span>
                 </div>
                 
-                <div class="flex justify-between items-center p-3 bg-white/8 rounded-lg">
-                    <span class="text-gray-300"><i class="fas fa-hashtag mr-2 text-pink-400"></i>Item ID</span>
-                    <span class="text-white font-mono">${item.id}</span>
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border">
+                    <span class="text-gray-600"><i class="fas fa-hashtag mr-2 text-pink-500"></i>Item ID</span>
+                    <span class="text-gray-800 font-mono">${item.id}</span>
                 </div>
             </div>
             
             <div class="flex gap-3">
                 <button 
                     onclick="this.closest('.fixed').remove()"
-                    class="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 text-white px-4 py-2 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-200 font-medium"
+                    class="flex-1 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition duration-200 font-medium"
                 >
                     <i class="fas fa-times mr-2"></i>Close
                 </button>
                 <button 
                     onclick="addToOrder(${item.id})"
-                    class="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 font-medium"
+                    class="flex-1 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-200 font-medium"
                 >
                     <i class="fas fa-plus mr-2"></i>Add to Order
                 </button>
@@ -437,10 +434,10 @@ function showApiStatus(type, message) {
     const statusElement = apiStatus;
     const isSuccess = type === 'success';
     
-    statusElement.className = `p-4 rounded-lg glass-effect border-l-3 ${
+    statusElement.className = `p-4 rounded-md border-l-4 ${
         isSuccess 
-            ? 'border-green-400 bg-green-500/15 text-green-300' 
-            : 'border-red-400 bg-red-500/15 text-red-300'
+            ? 'border-green-500 bg-green-50 text-green-700' 
+            : 'border-red-500 bg-red-50 text-red-700'
     }`;
     
     const icon = isSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
